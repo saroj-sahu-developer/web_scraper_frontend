@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
+import { useNavigate } from 'react-router-dom';
 
 const formatPrice = (price) => {
   return new Intl.NumberFormat("en-IN", {
@@ -14,14 +15,19 @@ const formatPrice = (price) => {
 };
 
 const ProductCard = ({product}) => {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/products/${product.id}`);
+  };
+
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
+      <CardActionArea onClick={handleCardClick}>
         <CardMedia
           component="img"
-          height="140"
-          image={product.image_url}
-          alt="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930"
+          image={product.image_url || "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930"}
+          alt="No Image"
         />
         
         <CardContent>

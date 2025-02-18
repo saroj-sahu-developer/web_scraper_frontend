@@ -4,7 +4,6 @@ import Products from './Products';
 import Grid from '@mui/material/Grid2';
 import { Paper } from "@mui/material";
 import { SearchBar } from '../components/SearchBar';
-import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 
 const ProductsPage = () => {
@@ -30,14 +29,6 @@ const ProductsPage = () => {
 
       <Grid size={2}>
         <Grid>
-          <Button 
-            variant="contained" 
-            sx={{mb: 2}}
-            onClick={() => navigate("/products/scrape")}
-          >
-            Scrape Products
-          </Button>
-
           <Paper elevation={3} sx={{ padding: 2 }}>
             <CategoriesMenu
               handleCategoryChange={updateSelectedCategory}
