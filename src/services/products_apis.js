@@ -13,3 +13,12 @@ export const get = async (path) => {
     throw error;
   }
 };
+
+export const post = async (path, params) => {
+  try {
+    const response = await axios.post(urlPath(path), params);
+    return response.data; 
+  } catch (error) {
+    throw error;
+  }
+};
